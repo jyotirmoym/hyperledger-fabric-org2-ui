@@ -1,0 +1,28 @@
+@import "./styles/variables.scss";
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+@import "~bootstrap/scss/mixins";
+
+app-root {
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $header-background;
+  height: 100%;
+}
+
+.content {
+  background-color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.brand-custom {
+  font-size: larger;
+  font-weight: normal;
+  color: white;
+}
+

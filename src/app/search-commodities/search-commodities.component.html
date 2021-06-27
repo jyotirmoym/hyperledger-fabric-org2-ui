@@ -1,0 +1,47 @@
+<div class="container">
+  <div id="login-row" class="row justify-content-center align-items-center">
+    <div id="commodities-search-column" class="col-md-12">
+      <div id="commodities-search-box" class="col-md-12">
+        <form id="commodities-search-form" class="form" action="" method="post">
+          <div class="form-group">
+            <label for="commoditieskey" class="text-info"><span>Commodity:</span> <span><input id="commoditieskey"
+                  #searchBar name="commoditieskey" type="search"
+                  class="form-control"></span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" id="load" name="load" class="btn btn-info btn-md" value="load"
+              (click)="loadCommodities(searchBar.value)">
+              <span *ngIf="isProcessing"  class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              load
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div *ngIf="commodities.length > 0" id="commodities-result-column" class="col-md-12">
+      <div id="commodities-result-box" class="col-md-12">
+        <form id="commodities-result-form" class="form" action="" method="post">
+          <div class="form-group">
+            <table class="table table-striped table-bordered table-sm table-responsive-sm">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-info">Count</th>
+                  <th scope="col" class="text-info">Updated On</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let commodity of commodities; index as i">
+                  <td class="text-info">
+                    {{ commodity.data }}
+                  </td>
+                  <td class="text-info">{{ commodity.transactionTime | date:'medium' }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div *ngIf="commodities.length == 0" id="commodities-result-column" class="col-md-12 text-info">
+      There is no commodities to show. Please use the search option above with valid key to load commodities.
+    </div>
+  </div>
+</div>
